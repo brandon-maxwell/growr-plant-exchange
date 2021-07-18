@@ -14,30 +14,27 @@ export default function Places(props) {
 
   useEffect(() => {
     loadTrades();
-
   }, []);
 
   // Loads all trades near userid
   function loadTrades() {
     API.getTrades(userId)
-      .then( (res) => {
-        console.log(`trade info`, res)
+      .then((res) => {
+        console.log(`trade info`, res);
         let temp = [];
 
-        for(let i = 0; i < res.data.length; i++){
-
-          for(let j = 0; j < res.data[i].trades.length; j++){
+        for (let i = 0; i < res.data.length; i++) {
+          for (let j = 0; j < res.data[i].trades.length; j++) {
             let tempTrade = res.data[i].trades[j];
-            console.log(tempTrade)
-            if(tempTrade){
+            console.log(tempTrade);
+            if (tempTrade) {
               tempTrade.name = res.data[i].name;
-              temp.push(tempTrade)
+              temp.push(tempTrade);
             }
           }
         }
         // console.log("temp", temp)
-        setTradeDataState(
-          temp)
+        setTradeDataState(temp);
       })
       .catch((err) => console.log(err));
   }
@@ -46,8 +43,8 @@ export default function Places(props) {
     <>
       <NavBar page="trade" />
       <Gallery>
-        {tradeDataState.map( (trade) => {
-          return <TradeCard  trade={trade} />;
+        {tradeDataState.map((trade) => {
+          return <TradeCard trade={trade} />;
         })}
       </Gallery>
     </>

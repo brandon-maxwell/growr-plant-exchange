@@ -6,16 +6,16 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import { teal } from "@material-ui/core/colors";
+// import { green } from "@material-ui/core/colors";
 import Typography from "@material-ui/core/Typography";
 
-const cardColor = teal[100];
+// const cardColor = green[100];
 
 const useStyles = makeStyles({
   root: {
-    width: 300,
+    width: 400,
     margin: "10px",
-    backgroundColor: cardColor,
+    // backgroundColor: cardColor,
   },
   media: {
     height: 250,
@@ -33,6 +33,8 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  action:
+    {justifyContent: 'end',},
 });
 
 export default function ProfileCard( {profile} ) {
@@ -40,7 +42,7 @@ export default function ProfileCard( {profile} ) {
 
   return (
     <Card className={classes.root} elevation={7}>
-      <CardActionArea>
+      
         {/* Profile Photo */}
         <CardMedia
           className={classes.media}
@@ -64,9 +66,9 @@ export default function ProfileCard( {profile} ) {
             {/* update this to something human readable */}
           </Typography>
         </CardContent>
-      </CardActionArea>
+      
 
-      <CardActions>
+      <CardActions className={classes.action}>
         {/* Button click initiates either email or messaging */}
         <Button size="small" color="secondary">
           {profile.email}
