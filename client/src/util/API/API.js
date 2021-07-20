@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 // eslint-disable-next-line
 export default {
   // Get all trades in radius by logged in uid
